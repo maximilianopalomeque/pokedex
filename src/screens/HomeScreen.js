@@ -10,7 +10,6 @@ import axios from "axios";
 import PokemonCard from "../components/PokemonCard";
 
 const HomeScreen = () => {
-  const [allPokemonURL, setAllPokemonURL] = useState([]);
   const [allPokemonData, setAllPokemonData] = useState([]);
 
   const [searchFilter, setSearchFilter] = useState("");
@@ -18,36 +17,28 @@ const HomeScreen = () => {
   const getAllPokemonURL = async () => {
     const response = await axios(
       "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150"
-    )
-      .then((response) => {
-        setAllPokemonURL(response.data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    );
+    return response.data.results;
   };
 
   const getAllPokemonData = async () => {
+    const urls = await getAllPokemonURL();
     const allData = [];
 
-    for (let i = 0; i < allPokemonURL.length; i++) {
-      const response = await axios(allPokemonURL[i])
-        .then((response) => allData.push(response.data))
-        .catch((err) => {
-          console.log(err);
-        });
+    for (let i = 0; i < urls.length; i++) {
+      const response = await axios(urls[i]);
+      allData.push(response.data);
     }
     setAllPokemonData(allData);
   };
 
   useEffect(() => {
-    getAllPokemonURL();
-
     getAllPokemonData();
   }, []);
 
   return (
     <>
+      {console.log("pokemondata", allPokemonData)}
       <Container>
         <Grid container xl={12} s={12} mt={2} justifyContent="center" mb={2}>
           <Grid item>
