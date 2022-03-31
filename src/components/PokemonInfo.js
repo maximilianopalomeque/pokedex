@@ -7,34 +7,16 @@ import Typography from "@mui/material/Typography";
 import LinearProgress from "@mui/material/LinearProgress";
 
 const PokemonInfo = ({ pokemon }) => {
-  const [description, setDescription] = useState("");
-
-  const getDescription = async () => {
-    const response = await axios(pokemon.species.url)
-      .then((response) =>
-        setDescription(response.data.flavor_text_entries[9].flavor_text)
-      )
-      .catch((err) => console.log(err));
-  };
-
-  const pokemonTypes = pokemon.types;
-  const abilities = pokemon.abilities;
-  const stats = pokemon.stats;
-
-  useEffect(() => {
-    getDescription();
-  }, []);
-
   return (
     <Container>
       <Grid container>
         <Grid item xl={4} md={4} xs={12} textAlign="center">
           <Grid item>
-            <img src={pokemon.sprites.front_default} />
+            <img src={pokemon.sprite} />
           </Grid>
 
           <Grid item>
-            <Typography>{description}</Typography>
+            <Typography>{pokemon.description}</Typography>
           </Grid>
         </Grid>
 
@@ -49,13 +31,13 @@ const PokemonInfo = ({ pokemon }) => {
           <Typography mt={0.5} variant="h5" style={{ fontWeight: "bold" }}>
             Types
           </Typography>
-          {pokemonTypes.map((type) => {
+          {pokemon.types.map((type) => {
             return <Typography>{type.type.name}</Typography>;
           })}
           <Typography mt={2} variant="h5" style={{ fontWeight: "bold" }}>
             Abilities
           </Typography>
-          {abilities.map((ability) => {
+          {pokemon.abilities.map((ability) => {
             return <Typography>{ability.ability.name}</Typography>;
           })}
         </Grid>
@@ -77,7 +59,7 @@ const PokemonInfo = ({ pokemon }) => {
             textAlign="center"
             spacing={1}
           >
-            {stats.map((stat) => {
+            {pokemon.stats.map((stat) => {
               return (
                 <>
                   <Grid item md={4}>

@@ -7,9 +7,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Avatar from "@mui/material/Avatar";
 import PokemonInfo from "./PokemonInfo";
 
-import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
 
 const PokemonCard = ({ pokemon }) => {
   return (
@@ -22,7 +20,7 @@ const PokemonCard = ({ pokemon }) => {
         >
           <Avatar
             alt="Pokemon image"
-            src={pokemon.sprites.front_default}
+            src={pokemon.sprite}
             variant="square"
             sx={{ width: 50, height: 50 }}
           />
