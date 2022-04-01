@@ -3,9 +3,11 @@ import { React, useState, useEffect } from "react";
 import axios from "axios";
 
 import PokemonList from "../components/PokemonList";
+import LoadingText from "../UIElements/LoadingText";
 
 const HomeScreen = () => {
   const [allPokemonData, setAllPokemonData] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const getAllPokemonURL = async () => {
     const response = await axios(
@@ -39,13 +41,22 @@ const HomeScreen = () => {
       allData.push(pokemon);
     }
     setAllPokemonData(allData);
+    setIsLoaded(true);
   };
 
   useEffect(() => {
     getAllPokemonData();
   }, []);
 
-  return <PokemonList allPokemonData={allPokemonData} />;
+  return (
+    <>
+      {isLoaded ? (
+        <PokemonList allPokemonData={allPokemonData} />
+      ) : (
+        <LoadingText />
+      )}
+    </>
+  );
 };
 
 export default HomeScreen;
