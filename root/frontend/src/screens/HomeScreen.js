@@ -44,7 +44,20 @@ const HomeScreen = () => {
     setIsLoaded(true);
   };
 
+  const getPokemonData = async () => {
+    let response;
+    try {
+      response = await axios("http://localhost:5000/");
+    } catch (error) {
+      console.log("could not get pokemon data");
+    }
+
+    console.log(response.data);
+  };
+
   useEffect(() => {
+    getPokemonData();
+
     getAllPokemonData();
   }, []);
 
