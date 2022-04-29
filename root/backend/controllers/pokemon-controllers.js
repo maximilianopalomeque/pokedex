@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const CustomError = require("../models/CustomError");
 
-const Pokemon = require("../utils/getDataFromApi/pokemonSchema");
+const Pokemon = require("../models/pokemonSchema");
 
 const getPokemonData = async (req, res, next) => {
   let pokemonData;

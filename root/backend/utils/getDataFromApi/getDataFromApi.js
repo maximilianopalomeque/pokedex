@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const api_url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150";
 
-const Pokemon = require("./pokemonSchema");
+const Pokemon = require("../../models/pokemonSchema");
 
 const getUrls = async () => {
   let response;
@@ -48,7 +48,7 @@ const getAndSaveAllPokemonData = async () => {
     let description = await getDescription(response.data.species.url);
     if (!description) {
       console.log("failed to get description");
-      return;
+      description = "No description available";
     }
 
     const pokemon = new Pokemon({
@@ -64,8 +64,7 @@ const getAndSaveAllPokemonData = async () => {
     try {
       await pokemon.save();
     } catch (error) {
-      console.log("could not save pokemon");
-      return;
+      console.log("could not save pokemon", pokemon.name);
     }
   }
 

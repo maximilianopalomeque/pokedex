@@ -23,7 +23,6 @@ app.use(
 app.use("/", pokemonRoutes);
 
 app.use((error, req, res, next) => {
-  console.log("error handling function");
   res.status(error.code || 500);
   res.json({ message: error.message || "an unknown error ocurred" });
 });
