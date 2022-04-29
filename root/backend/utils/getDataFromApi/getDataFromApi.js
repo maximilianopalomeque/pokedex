@@ -58,6 +58,7 @@ const getAndSaveAllPokemonData = async () => {
       types: response.data.types,
       abilities: response.data.abilities,
       stats: response.data.stats,
+      sprite: response.data.sprites.front_default,
     });
 
     try {
