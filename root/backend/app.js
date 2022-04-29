@@ -2,8 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-const CustomError = require("./models/CustomError");
-
 const pokemonRoutes = require("./routes/pokemon-routes");
 const db_url =
   "mongodb+srv://maximilianopalomeque:PEQbdWJWk4mNxMXQ@cluster0.jd4it.mongodb.net/pokedex150?retryWrites=true&w=majority";

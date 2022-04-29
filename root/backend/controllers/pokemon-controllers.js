@@ -10,8 +10,6 @@ const getPokemonData = async (req, res, next) => {
   } catch (error) {
     return next(new CustomError("could not get data from database", 500));
   }
-
-  // pokemonData = pokemonData.map((p) => p.toObject());
   res.json(pokemonData);
 };
 
