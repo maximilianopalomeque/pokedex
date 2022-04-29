@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(
   cors({
     allowedHeaders: ["Content-Type"],
-    origin: "http://localhost:3000",
+    origin: "*",
     preflightContinue: true,
   })
 );
