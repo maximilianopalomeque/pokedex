@@ -1,10 +1,10 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
 const pokemonRoutes = require("./routes/pokemon-routes");
-const db_url =
-  "mongodb+srv://maximilianopalomeque:PEQbdWJWk4mNxMXQ@cluster0.jd4it.mongodb.net/pokedex150?retryWrites=true&w=majority";
 
 const app = express();
 
@@ -26,7 +26,7 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-  .connect(db_url)
+  .connect(process.env.DB_URL)
   .then(() => {
     console.log("connected to db");
   })
