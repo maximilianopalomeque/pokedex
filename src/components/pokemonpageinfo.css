@@ -1,0 +1,31 @@
+.page-background {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 390px;
+  z-index: -1;
+}
+
+.pokemon-title {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.pokemon-description {
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+@media (min-width: 900px) {
+  .pokemon-description-container {
+    margin-left: 30vw;
+    margin-right: 30vw;
+  }
+}

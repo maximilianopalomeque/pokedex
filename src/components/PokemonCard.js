@@ -1,44 +1,31 @@
-import React from "react";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Avatar from "@mui/material/Avatar";
-import PokemonInfo from "./PokemonInfo";
-
 import Grid from "@mui/material/Grid";
+import "./pokemoncard.css";
+import { CardActionArea } from "@mui/material";
 
 const PokemonCard = ({ pokemon }) => {
+  const type = pokemon.types[0].type.name;
   return (
-    <div>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
+    <CardActionArea>
+      <Grid container className={`pokemon-card ${type} pokemon-info`}>
+        <Grid item p={1}>
           <Avatar
             alt="Pokemon image"
-            src={pokemon.sprite}
+            src={pokemon.image}
             variant="square"
-            sx={{ width: 50, height: 50 }}
+            sx={{ width: 60, height: 60 }}
+            className="avatar"
           />
-          <Typography style={{ fontWeight: "bold" }} mt={1.5} ml={2} mr={1}>
-            {pokemon.id}
+        </Grid>
+        <Grid item ml={0.5}>
+          <Typography className="pokemon-name">{pokemon.name}</Typography>
+          <Typography mt={-1.5} ml={0.1} className="pokemon-number">
+            {pokemon.dexNumber}
           </Typography>
-          <Typography mt={1.5} style={{ textTransform: "capitalize" }}>
-            {pokemon.name}
-          </Typography>
-        </AccordionSummary>
-
-        <AccordionDetails>
-          <Grid item xl={12} mb={2}>
-            <PokemonInfo pokemon={pokemon} />
-          </Grid>
-        </AccordionDetails>
-      </Accordion>
-    </div>
+        </Grid>
+      </Grid>
+    </CardActionArea>
   );
 };
 

@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+.pokemon-card {
+  color: white;
+}
+
+.pokemon-name {
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.pokemon-number {
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+@media (min-width: 900px) {
+  .pokemon-info {
+    justify-content: center;
+    text-align: center;
+  }
+  .avatar {
+    height: 200px;
+    width: 200px;
+  }
+  .pokemon-name {
+    margin-top: -40px;
+    font-size: 35px;
+  }
+}

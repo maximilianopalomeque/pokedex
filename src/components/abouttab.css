@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+.about-tab-info-title {
+  color: #989898;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.about-tab-info {
+  color: black;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+@media (max-width: 600px) {
+  .about-tab-info-title {
+    margin-left: 5vw;
+  }
+  .about-tab-info {
+    text-align: center;
+  }
+}
+
+@media (min-width: 600px) {
+  .about-tab-info-title {
+    margin-left: 5vw;
+  }
+  .about-tab-info {
+    text-align: center;
+  }
+  .about-tab-data-container {
+    justify-content: center;
+  }
+}

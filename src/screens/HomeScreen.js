@@ -9,21 +9,19 @@ const HomeScreen = () => {
   const [allPokemonData, setAllPokemonData] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const getPokemonData = async () => {
-    let response;
+  const getAllPokemonData = async () => {
     try {
-      response = await axios("http://localhost:5000/");
+      const response = await axios(process.env.REACT_APP_BACKEND_URL);
+      setAllPokemonData(response.data);
     } catch (error) {
-      console.log("could not get pokemon data");
-      return;
+      console.log(error);
     }
 
-    setAllPokemonData(response.data);
     setIsLoaded(true);
   };
 
   useEffect(() => {
-    getPokemonData();
+    getAllPokemonData();
   }, []);
 
   return (

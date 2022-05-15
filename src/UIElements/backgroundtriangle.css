@@ -1,0 +1,91 @@
+.triangle-left {
+  color: red;
+  width: 0;
+  height: 0;
+  border-bottom: 390px solid;
+  border-right: 100vw solid transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.triangle-right {
+  color: aqua;
+  width: 0;
+  height: 0;
+  border-top: 390px solid;
+  border-left: 100vw solid transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -5;
+}
+
+/* background color by pokemon type */
+.background-color-grass {
+  color: #82c7ad;
+}
+
+.background-color-fire {
+  color: #f95368;
+}
+
+.background-color-water {
+  color: #75befd;
+}
+
+.background-color-flying {
+  color: #5385aa;
+}
+
+.background-color-poison {
+  color: #bc82c7;
+}
+
+.background-color-bug {
+  color: #6c9e8a;
+}
+
+.background-color-normal {
+  color: #b7b7b7;
+}
+
+.background-color-psychic {
+  color: #ed8097;
+}
+
+.background-color-fighting {
+  color: #d8687b;
+}
+
+.background-color-electric {
+  color: #fed04d;
+}
+
+.background-color-ground {
+  color: #ddc973;
+}
+
+.background-color-fairy {
+  color: #efa3bc;
+}
+
+.background-color-rock {
+  color: #b5ae8f;
+}
+
+.background-color-steel {
+  color: #939393;
+}
+
+.background-color-ice {
+  color: #a3ceef;
+}
+
+.background-color-ghost {
+  color: #7d5fa0;
+}
+
+.background-color-dragon {
+  color: #5d71ba;
+}
