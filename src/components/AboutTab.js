@@ -6,7 +6,6 @@ import MaleIcon from "@mui/icons-material/Male";
 import "./abouttab.css";
 
 const AboutTab = ({ pokemon }) => {
-  const malePercentage = 100 - pokemon.genderRate;
   const femalePercentage = pokemon.genderRate;
 
   return (
@@ -61,13 +60,18 @@ const AboutTab = ({ pokemon }) => {
           <Grid item xs={6} md={4} lg={2}>
             <Typography className="about-tab-info-title">Gender</Typography>
           </Grid>
+
           <Grid item xs={6} md={4} lg={2}>
-            <Typography className="about-tab-info">
-              <MaleIcon fontSize="small" />
-              {malePercentage}% -
-              <FemaleIcon fontSize="small" />
-              {femalePercentage}%
-            </Typography>
+            {femalePercentage != -1 ? (
+              <Typography className="about-tab-info">
+                <MaleIcon fontSize="small" />
+                {100 - femalePercentage}% -
+                <FemaleIcon fontSize="small" />
+                {femalePercentage}%
+              </Typography>
+            ) : (
+              <Typography className="about-tab-info">Genderless</Typography>
+            )}
           </Grid>
         </Grid>
       </Grid>
